@@ -5,6 +5,8 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      counter: 0,
+      newMessage:"",
       contacts: [
         {
           name: "Michele",
@@ -170,5 +172,27 @@ createApp({
       ],
     };
   },
+  methods:{
+    addNewmessage(){
+      let obj = {};
+      obj.message = this.newMessage;
+      obj.status = 'sent';
+      this.contacts[this.counter].messages.push(obj);
+      this.newMessage = "";
+
+
+
+     let timeout;
+
+     timeout = setTimeout(() => {
+       let newMessageAutoObject = {
+         message: "Ok!",
+         status: "received",
+       };
+
+       this.contacts[this.counter].messages.push(newMessageAutoObject);
+     }, 1000);
+    },
+  }
   // Monto l'istanza di Vue in pagina
 }).mount("#app");
