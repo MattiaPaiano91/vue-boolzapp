@@ -10,3 +10,134 @@
 html {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* utilyties */
+.signed-color{
+    background-color: rgb(142, 218, 252);
+}
+
+.fa-bell-slash{
+    color:  rgb(142, 218, 252);
+}
+.chat-item{
+    padding: 20px;
+    margin-bottom:  20px;
+    border-radius: 10px; 
+}
+.sent{
+    background-color: #D5F9BA;
+}
+.received{
+    background-color: white;
+}
+    
+/* end utilyties */
+
+
+/* backgound */
+.background-row{
+    height: 100vh;
+}
+.col-up{
+    height: 15%;
+    background-color: #009688;
+}
+
+.col-down{
+    background-color: #DADBD4;
+    height: 85%;
+}
+/* end background */
+
+
+
+/* left side */
+.bell-box{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    line-height: 50px;
+}
+.search-button{
+    background-color: white;
+    border:1px solid lightgray;
+    color: gray;
+    width: 10%;
+}
+
+.search-input{
+    width: 90%;
+    border:1px solid lightgray;
+}
+
+.aside-body{
+    height: 100%;
+    overflow: auto;
+}
+.aside-body li{
+    list-style: none;
+}
+
+
+.aside-body img{
+    width: 60px;
+}
+/* end left side */
+
+
+
+/* right side */
+
+header img{
+   width: 60px;
+   line-height: 75px;
+}
+main{
+    height: calc(100% - 150px);
+}
+.chat-area{
+    background-image: url("../img/mine.jpg");
+    height: 100%;
+    padding: 50px 75px;
+}
+.icon-box{
+    color: gray;
+    height: 100%;
+    line-height: 60px;
+}
+
+
+footer{
+    height: 75px;
+    background-color: #EAEAEA;
+}
+
+footer i {
+    color: gray;
+}
+/* end right side */
+
+
+/* container */
+.main-box{
+    width: 80%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+}
+
+.main-box header{
+    height: 75px;
+    background-color: #EAEAEA;
+    width: 100%;
+    border-left: 1px solid lightgray ;
+}
+
+
+/* end container */
+
+
+
+
