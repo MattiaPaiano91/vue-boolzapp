@@ -6,7 +6,8 @@ createApp({
   data() {
     return {
       counter: 0,
-      newMessage:"",
+      newMessage: "",
+      contactsSearch: "",
       contacts: [
         {
           name: "Michele",
@@ -172,27 +173,45 @@ createApp({
       ],
     };
   },
-  methods:{
-    addNewmessage(){
+  methods: {
+    addNewmessage() {
       let obj = {};
       obj.message = this.newMessage;
-      obj.status = 'sent';
+      obj.status = "sent";
       this.contacts[this.counter].messages.push(obj);
       this.newMessage = "";
 
+      let timeout;
 
+      timeout = setTimeout(() => {
+        let newMessageAutoObject = {
+          message: "Ok!",
+          status: "received",
+        };
 
-     let timeout;
-
-     timeout = setTimeout(() => {
-       let newMessageAutoObject = {
-         message: "Ok!",
-         status: "received",
-       };
-
-       this.contacts[this.counter].messages.push(newMessageAutoObject);
-     }, 1000);
+        this.contacts[this.counter].messages.push(newMessageAutoObject);
+      }, 1000);
     },
-  }
+    filteredContacts() {
+      if (this.contactsSearch == "") {
+        for (let i = 0; i < this.contacts.length; i++) {
+          this.contacts[i].visible = true          
+        }
+      } else {
+        for (let i = 0; i < this.contacts.length; i++) {
+          if (
+            !this.contacts[i].name
+              .toLowerCase()
+              .includes(this.contactsSearch.toLowerCase())
+          ) {
+            this.contacts[i].visible = false;
+          } else {
+            this.contacts[i].visible = true;
+          }
+        }
+      }
+    }
+  },
   // Monto l'istanza di Vue in pagina
 }).mount("#app");
+

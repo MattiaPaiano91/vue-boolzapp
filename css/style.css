@@ -30,6 +30,9 @@ html {
 .received{
     background-color: white;
 }
+.active{
+    background-color: rgba(0, 0, 0, 0.2);
+}
     
 /* end utilyties */
 
@@ -76,6 +79,9 @@ html {
 }
 .aside-body li{
     list-style: none;
+}
+li:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 

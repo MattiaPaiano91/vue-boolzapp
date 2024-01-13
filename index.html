@@ -42,6 +42,7 @@
             <!-- left side -->
 
             <div class="col-4 p-0">
+              
               <header>
                 <div class="container w-100 ">
                   <div class="row g-0">
@@ -63,6 +64,7 @@
                   </div>
                 </div>
               </header>
+
               <div class="row g-0">
                 <div class="col-12 signed-color p-2">
                   <div class="rounded-5 bell-box text-center">
@@ -77,15 +79,18 @@
                     class="search-input"
                     placeholder="Cerca o inizia una nuova chat"
                     type="text"
+                    v-model="contactsSearch"
+                    @keyup="filteredContacts"
                   />
                 </div>
 
                 <!-- creo la lista dei contatti visibili nella parte sinistra -->
-
+                <!--  :class="(i== counter) ?'active':''" 
+                -->
                 <div class="col-12 aside-body bg-white">
                   <ul class="p-0 ">
-                      <li @click="counter = i" v-for="(elem,i) in contacts"class="border-bottom">
-                        <div class="d-flex ">
+                      <li @click="counter = i" v-for="(elem,i) in contacts" :class="elem.visible ? '' : 'd-none'" class="border-bottom rounded-3 mx-2"  > 
+                        <div  class="d-flex">
                           <img class="rounded-5 m-2 " :src="elem.avatar" :alt="elem.name">
                           <div class="flex-grow-1 ">
                             {{ elem.name }}
@@ -152,7 +157,6 @@
                         <input
                           v-model="newMessage"
                           @keyup.enter="addNewmessage"
-                          @keyup.enter = "setTimeout(autoAnswer,1000)"
                           type="text"
                           class="form-control"
                           aria-label="Sizing example input"
