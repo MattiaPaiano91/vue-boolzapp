@@ -106,6 +106,7 @@
                     <div v-if="elem.messages.length > 0" class="me-2 grey-text">
                       {{ splitHourAside(i, elem.messages.length - 1) }}
                     </div>
+                    
                   </div>
                 </li>
               </ul>
@@ -143,24 +144,32 @@
                 <div
                   v-for="(elem,i) in contacts[counter].messages"
                   :class="contacts[counter].messages[i].status == 'sent' ? 'justify-content-end ' : 'justify-content-start'"
-                  class="d-flex"
-                  @click=" showMenù(i)"
+                  class="d-flex prova"
+                  
                 >
                   <div
                     :class="contacts[counter].messages[i].status"
                     class="chat-item position-relative"
+                    @click="showMenù(i)"
                   >
                     {{ contacts[counter].messages[i].message }}
 
                     <div class="grey-text text-end">
+                      <span class="my-d-none">
+                        <i  class="fa-solid grey-text fa-chevron-down "></i>
+                      </span>
                       {{ splitHourMessage(i) }}
                     </div>
+
+
+                    
                     <div v-if="messageCounter == i" class="position-absolute z-1 single-chat-menù p-3 rounded-3">
                       <ul class="p-0">
                         <li @click=" removeMessage(i)" class="my-2">Delete message</li>
                         <li>Info message</li>
                       </ul>
                     </div>
+                    
                   </div>
                 </div>
               </div>

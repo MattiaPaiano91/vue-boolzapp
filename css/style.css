@@ -39,6 +39,9 @@ html {
     font-size: 13px;
 
 }
+.my-d-none{
+    display: none;
+}
     
 /* end utilyties */
 
@@ -76,13 +79,10 @@ html {
     color: gray;
     width: 10%;
 }
-
 .search-input{
     width: 90%;
     border:1px solid lightgray;
 }
-
-
 .aside-body{
     
   height: calc(100% - 175px);
@@ -94,12 +94,18 @@ html {
 li:hover{
     background-color: rgba(0, 0, 0, 0.1);
 }
-
-
 .aside-body img{
     width: 60px;
 }
+.chat-item:hover .my-d-none{
+    display: inline;
+}
+
+
+
 /* end left side */
+
+
 
 
 
@@ -128,11 +134,11 @@ main{
 .single-chat-menù{
     width: 150px;
     background-color: white;
-   right: 10%;
-   top: 30%;
-   text-align: center;
-   font-size: 15px;
-  box-shadow: 0px -23px 39px -8px rgba(0,0,0,0.1);
+    right: 3%;
+    top: 85%;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: 0px -23px 39px -8px rgba(0,0,0,0.1);
 }
 .single-chat-menù li{
     list-style: none;
