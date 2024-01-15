@@ -8,6 +8,7 @@ createApp({
       counter: 0,
       newMessage: "",
       contactsSearch: "",
+      messageCounter: null,
       contacts: [
         {
           name: "Michele",
@@ -222,13 +223,28 @@ createApp({
       return soloOra;
     },
     splitHourAside(i, messageIndex) {
-      let dateOfSingleMessage =
-        this.contacts[i].messages[messageIndex].date;
+      let dateOfSingleMessage = this.contacts[i].messages[messageIndex].date;
       let divide = dateOfSingleMessage.split(" ");
       let soloOra = divide[1].split(":").slice(0, 2).join(":");
 
       return soloOra;
     },
+    removeMessage(i) {
+      this.contacts[this.counter].messages.splice(i, 1);
+    },
+    showMenù(i){
+      if (this.messageCounter == null) {
+        this.messageCounter = i;
+      }
+      else{
+        this.messageCounter = null;
+      }
+        
+    },
+    switchUser(i){
+      this.counter = i;
+      this.messageCounter= null;
+    }
   },
   // Monto l'istanza di Vue in pagina
 }).mount("#app");
