@@ -14,6 +14,7 @@ html {
 /* utilyties */
 .signed-color{
     background-color: rgb(142, 218, 252);
+    height: 60px;
 }
 
 .fa-bell-slash{
@@ -32,6 +33,11 @@ html {
 }
 .active{
     background-color: rgba(0, 0, 0, 0.2);
+}
+.grey-text{
+    color: darkgray;
+    font-size: 13px;
+
 }
     
 /* end utilyties */
@@ -56,11 +62,14 @@ html {
 
 /* left side */
 .bell-box{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: white;
-    line-height: 50px;
+    line-height: 40px;
 }
+.input-box{
+    height: 100px;
+} 
 .search-button{
     background-color: white;
     border:1px solid lightgray;
@@ -73,9 +82,11 @@ html {
     border:1px solid lightgray;
 }
 
+
 .aside-body{
-    height: 100%;
-    overflow: auto;
+    
+  height: calc(100% - 175px);
+  overflow: auto;
 }
 .aside-body li{
     list-style: none;
@@ -99,17 +110,17 @@ header img{
    line-height: 75px;
 }
 main{
+    background-image: url("../img/mine.jpg");
     height: calc(100% - 150px);
 }
 .chat-area{
-    background-image: url("../img/mine.jpg");
-    height: 100%;
+    overflow-y:scroll;
     padding: 50px 75px;
 }
 .icon-box{
     color: gray;
     height: 100%;
-    line-height: 60px;
+    line-height: 75px;
 }
 
 
@@ -127,11 +138,12 @@ footer i {
 /* container */
 .main-box{
     width: 80%;
-    height: 90%;
+    height: 800px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: white;
+    border-radius: 20px;
 }
 
 .main-box header{

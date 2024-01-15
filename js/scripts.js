@@ -175,27 +175,30 @@ createApp({
   },
   methods: {
     addNewmessage() {
-      let obj = {};
-      obj.message = this.newMessage;
-      obj.status = "sent";
-      this.contacts[this.counter].messages.push(obj);
-      this.newMessage = "";
+      if (this.newMessage.trim().length > 0) {
+        let obj = {};
+        obj.message = this.newMessage.trim();
+        obj.status = "sent";
+        obj.date = "10/01/2020 15:51:00";
+        this.contacts[this.counter].messages.push(obj);
+        this.newMessage = "";
+        let timeout;
 
-      let timeout;
+        timeout = setTimeout(() => {
+          let newMessageAutoObject = {
+            message: "Ok!",
+            status: "received",
+            date: "10/01/2020 15:51:00",
+          };
 
-      timeout = setTimeout(() => {
-        let newMessageAutoObject = {
-          message: "Ok!",
-          status: "received",
-        };
-
-        this.contacts[this.counter].messages.push(newMessageAutoObject);
-      }, 1000);
+          this.contacts[this.counter].messages.push(newMessageAutoObject);
+        }, 1000);
+      }
     },
     filteredContacts() {
       if (this.contactsSearch == "") {
         for (let i = 0; i < this.contacts.length; i++) {
-          this.contacts[i].visible = true          
+          this.contacts[i].visible = true;
         }
       } else {
         for (let i = 0; i < this.contacts.length; i++) {
@@ -210,7 +213,22 @@ createApp({
           }
         }
       }
-    }
+    },
+    splitHourMessage(i) {
+      let dateOfSingleMessage = this.contacts[this.counter].messages[i].date;
+      let divide = dateOfSingleMessage.split(" ");
+      let soloOra = divide[1].split(":").slice(0, 2).join(":");
+
+      return soloOra;
+    },
+    splitHourAside(i, messageIndex) {
+      let dateOfSingleMessage =
+        this.contacts[i].messages[messageIndex].date;
+      let divide = dateOfSingleMessage.split(" ");
+      let soloOra = divide[1].split(":").slice(0, 2).join(":");
+
+      return soloOra;
+    },
   },
   // Monto l'istanza di Vue in pagina
 }).mount("#app");
