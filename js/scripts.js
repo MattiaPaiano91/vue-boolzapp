@@ -187,7 +187,7 @@ createApp({
 
         timeout = setTimeout(() => {
           let newMessageAutoObject = {
-            message: "Ok!",
+            message: "ok!",
             status: "received",
             date: "10/01/2020 15:51:00",
           };
